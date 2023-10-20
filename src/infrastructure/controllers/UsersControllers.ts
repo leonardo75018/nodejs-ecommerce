@@ -5,7 +5,7 @@ import {
   PrismaFindAllUsersService,
   PrismaFindUserByIdService,
   PrismaUpdateUserService,
-  PrismaFindUserByEmailService
+  AuthentificateUserService
 } from '../services/index'
 import { PrismaUsersRepository } from '../repositories'
 
@@ -74,5 +74,16 @@ export class UsersControllers {
       userId
     })
     response.status(201).send(userUpdated)
+  }
+
+  async authentification(request: Request, response: Response) {
+    const { email, password } = request.body
+    const prismaUsersRepository = new PrismaUsersRepository()
+    const authentificateUserService = new AuthentificateUserService(
+      prismaUsersRepository
+    )
+
+    const token = await authentificateUserService.execute({ email, password })
+    response.status(201).send(token)
   }
 }
