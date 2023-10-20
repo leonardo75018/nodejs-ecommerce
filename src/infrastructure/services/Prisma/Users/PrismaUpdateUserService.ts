@@ -7,6 +7,13 @@ export class PrismaUpdateUserService {
 
   async execute(params: UpdateUserParams): Promise<User> {
     const { firstName, lastName, password, userId } = params
+
+    const userExist = await this.prismaUsersRepository.findUserById(userId)
+
+    if (!userExist) {
+      throw new Error(`User ${userId}  is not found`)
+    }
+
     const userUpdated = await this.prismaUsersRepository.updateUser({
       firstName,
       lastName,

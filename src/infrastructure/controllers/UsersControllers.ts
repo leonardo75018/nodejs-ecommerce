@@ -4,7 +4,8 @@ import {
   PrismaDeleteUserService,
   PrismaFindAllUsersService,
   PrismaFindUserByIdService,
-  PrismaUpdateUserService
+  PrismaUpdateUserService,
+  PrismaFindUserByEmailService
 } from '../services/index'
 import { PrismaUsersRepository } from '../repositories'
 
@@ -24,7 +25,7 @@ export class UsersControllers {
       isAdmin
     })
 
-    response.send(user)
+    response.status(201).send(user)
   }
 
   async getAllUsers(request: Request, response: Response) {

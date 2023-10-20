@@ -1,1 +1,1 @@
-export * from './CreateUserParams'
+export * from './CreateUserRequest'
