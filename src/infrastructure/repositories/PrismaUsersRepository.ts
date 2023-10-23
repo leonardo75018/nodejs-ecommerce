@@ -18,7 +18,6 @@ export class PrismaUsersRepository implements UsersRepository {
   }
   async findAllUsers(): Promise<User[] | null> {
     const users = await prisma.user.findMany()
-    console.log(users)
     return users
   }
   async findUserById(userId: string): Promise<User | null> {

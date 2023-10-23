@@ -20,14 +20,10 @@ export class AuthentificateUserService {
     if (!comparePassWord) {
       throw new Error('Email,Password incorrect')
     }
-    const token = sign(
-      { userId: user.id },
-      '1bb0ab2946dd2c0f4e767100bf72be019a269718',
-      {
-        expiresIn: '1d',
-        subject: String(user.id)
-      }
-    )
+    const token = sign({ userId: user.id }, process.env.TOKEN_SECRET_KEY, {
+      expiresIn: '1d',
+      subject: String(user.id)
+    })
     return token
   }
 }

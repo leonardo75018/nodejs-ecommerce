@@ -6,7 +6,6 @@ export class PrismaFindUserByIdService {
 
   async execute(userId: string): Promise<User | null> {
     const user = await this.prismaUsersRepository.findUserById(userId)
-    console.log(user)
     return user
   }
 }

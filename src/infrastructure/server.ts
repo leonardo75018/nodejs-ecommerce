@@ -1,11 +1,11 @@
 import express, { Request, Response, NextFunction } from 'express'
+import 'dotenv/config'
 import router from './views/index'
 import 'express-async-errors'
 
 const app = express()
 
 app.use(express.json(), router)
-const PORT = 3000
 
 app.use(
   (err: Error, request: Request, response: Response, next: NextFunction) => {
@@ -21,4 +21,6 @@ app.use(
   }
 )
 
-app.listen(PORT, () => console.log(`Serveur run on port ${PORT}`))
+app.listen(process.env.PORT, () =>
+  console.log(`Serveur run on port ${process.env.PORT}`)
+)
