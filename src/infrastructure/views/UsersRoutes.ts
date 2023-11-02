@@ -6,12 +6,7 @@ const usersControllers = new UsersControllers()
 
 const usersRoutes = Router()
 
-usersRoutes.get(
-  '/',
-  ensureAuthentificated,
-  ensureAdmin,
-  usersControllers.getAllUsers
-)
+usersRoutes.get('/', usersControllers.getAllUsers)
 usersRoutes.get('/:userId', usersControllers.findUserById)
 usersRoutes.patch('/:userId', usersControllers.updateUser)
 usersRoutes.delete('/:userId', usersControllers.deleteUserById)

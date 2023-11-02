@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Cart` MODIFY `total` INTEGER NOT NULL DEFAULT 0;
