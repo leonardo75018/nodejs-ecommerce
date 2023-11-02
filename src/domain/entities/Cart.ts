@@ -1,8 +1,8 @@
-import { User } from './User'
-import { CartProductItem, Order } from './index'
+import { CartProduct } from './CartProduct'
 
 export interface Cart {
   id: number
   total: number
-  cartProductItems?: CartProductItem[]
+  userId: number
+  cartProducts?: CartProduct[]
 }

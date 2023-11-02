@@ -1,6 +1,6 @@
 export * from './User'
 export * from './Cart'
-export * from './CartProductItem'
+export * from './CartProduct'
 export * from './Order'
 export * from './Product'
 export * from './OrderProduct'

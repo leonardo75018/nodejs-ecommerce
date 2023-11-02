@@ -1,9 +1,9 @@
 import { User } from '../entities/User'
-import { createUserRequest } from '../types'
-import { UpdateUserParams } from '../types/UpdateUserParams'
+import { CreateUserRequest } from '../interfaces'
+import { UpdateUserParams } from '../interfaces/UpdateUserParams'
 
 export interface UsersRepository {
-  createUser(params: createUserRequest): Promise<User>
+  createUser(params: CreateUserRequest): Promise<User>
   updateUser(params: UpdateUserParams): Promise<User>
   deleteUser(userId: string): Promise<void>
   findUserById(userId: string): Promise<User | null>

@@ -24,12 +24,12 @@ model User {
 }
 
 model Cart {
-  id          Int           @id @default(autoincrement())
-  total       Int           @default(0)
-  user        User          @relation(fields: [userId], references: [id])
-  userId      Int           @unique
-  CartProduct CartProduct[]
-  Order       Order[]
+  id           Int           @id @default(autoincrement())
+  total        Int           @default(0)
+  user         User          @relation(fields: [userId], references: [id])
+  userId       Int           @unique
+  cartProducts CartProduct[]
+  Order        Order[]
 }
 
 model Product {
@@ -37,7 +37,7 @@ model Product {
   name         String
   description  String
   price        Int
-  CartProduct  CartProduct[]
+  cartProduct  CartProduct[]
   OrderProduct OrderProduct[]
 }
 

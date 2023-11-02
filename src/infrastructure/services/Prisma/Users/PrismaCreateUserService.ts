@@ -1,12 +1,12 @@
 import { User } from '../../../../domain/entities'
-import { createUserRequest } from '../../../../domain/types'
+import { CreateUserRequest } from '../../../../domain/interfaces'
 import { PrismaUsersRepository } from '../../../repositories'
 import { hash } from 'bcrypt'
 
 export class PrismaCreateUserService {
   constructor(private prismaUsersRepository: PrismaUsersRepository) {}
 
-  async execute(params: createUserRequest): Promise<User> {
+  async execute(params: CreateUserRequest): Promise<User> {
     const { firstName, lastName, email, password, isAdmin } = params
 
     const userExist = await this.prismaUsersRepository.findUserByEmail(email)

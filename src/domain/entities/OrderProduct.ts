@@ -4,6 +4,6 @@ export interface OrderProduct {
   quantity: number
   productId: number
   orderId: number
-  createdAt: Date
-  updatedAt: Date
+  createdAt?: Date
+  updatedAt?: Date
 }

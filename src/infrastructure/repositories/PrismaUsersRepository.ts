@@ -1,11 +1,11 @@
 import { User } from '../../domain/entities'
 import { UsersRepository } from '../../domain/repositories'
-import { createUserRequest } from '../../domain/types'
-import { UpdateUserParams } from '../../domain/types/UpdateUserParams'
+import { CreateUserRequest } from '../../domain/interfaces'
+import { UpdateUserParams } from '../../domain/interfaces/UpdateUserParams'
 import prisma from '../outils/prisma'
 
 export class PrismaUsersRepository implements UsersRepository {
-  async createUser(params: createUserRequest): Promise<User> {
+  async createUser(params: CreateUserRequest): Promise<User> {
     const user = await prisma.user.create({ data: params })
     return user
   }

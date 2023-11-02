@@ -1,9 +1,9 @@
 import { Product } from './Product'
 
-export interface CartProductItem {
+export interface CartProduct {
   id: number
+  cartId: number
   price: number
   quantity: number
-  cartId: number
-  product: Product
+  productId: number
 }

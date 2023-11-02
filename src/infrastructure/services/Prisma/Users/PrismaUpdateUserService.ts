@@ -1,5 +1,5 @@
 import { User } from '../../../../domain/entities'
-import { UpdateUserParams } from '../../../../domain/types/UpdateUserParams'
+import { UpdateUserParams } from '../../../../domain/interfaces/UpdateUserParams'
 import { PrismaUsersRepository } from '../../../repositories'
 
 export class PrismaUpdateUserService {

@@ -1,12 +1,10 @@
 import { Cart } from '../entities'
-import { User } from '../entities/User'
-import { createUserRequest, deleteCartByUserParams } from '../types'
-import { UpdateUserParams } from '../types/UpdateUserParams'
+import { DeleteCartByUserParams, AddProductToCartRequest } from '../interfaces'
 
 export interface CartRepository {
-  createCarte(userId: string): Promise<Cart>
+  createCart(userId: string): Promise<Cart>
   deleteById(cartId: string): Promise<void>
-  deleteByUser(params: deleteCartByUserParams): Promise<void>
+  deleteByUser(params: DeleteCartByUserParams): Promise<void>
   findById(cartId: string): Promise<Cart | null>
   findAll(): Promise<Cart[] | null>
 }
