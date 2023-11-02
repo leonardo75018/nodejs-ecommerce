@@ -1,3 +1,5 @@
 export * from './PrismaUsersRepository'
 export * from './PrismaCartsRepository'
 export * from './PrismaOrdersRepository'
+export * from './PrismaCartProductRepository'
+export * from './PrismaOrdersRepository'

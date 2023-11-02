@@ -37,6 +37,17 @@ export class PrismaCartRepository implements CartRepository {
     })
     return cart
   }
+  async findByUserId(userId: string): Promise<Cart> {
+    const cart = await prisma.cart.findUnique({
+      where: {
+        userId: Number(userId)
+      },
+      include: {
+        cartProducts: true
+      }
+    })
+    return cart
+  }
 
   async deleteById(cartId: string): Promise<void> {
     await prisma.cart.delete({

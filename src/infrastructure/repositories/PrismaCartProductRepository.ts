@@ -21,8 +21,12 @@ export class PrismaCartProductRepository implements CartProductsRepository {
     })
     return cartProduct
   }
-  async findAllCartProducts(cartId: number): Promise<CartProduct[]> {
-    const cartProducts = await prisma.cartProduct.findMany()
+  async findAllCartProducts(cartId: string): Promise<CartProduct[]> {
+    const cartProducts = await prisma.cartProduct.findMany({
+      where: {
+        cartId: Number(cartId)
+      }
+    })
     return cartProducts
   }
   async updateCartProduct(

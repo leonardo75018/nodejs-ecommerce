@@ -6,6 +6,7 @@ export interface CartRepository {
   deleteById(cartId: string): Promise<void>
   deleteByUser(params: DeleteCartByUserParams): Promise<void>
   findById(cartId: string): Promise<Cart | null>
+  findByUserId(userId: string): Promise<Cart | null>
   findAll(): Promise<Cart[] | null>
 }
 
