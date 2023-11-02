@@ -1,8 +1,10 @@
 import { Product } from '../entities'
+import { CreateProductRequest, UpdateProductRequest } from '../interfaces'
 
 export interface ProductRepository {
-  createProduct(): Promise<Product>
-  updateProduct(): Promise<Product>
-  findProductById(productId: string): Promise<Product>
-  deleteProduct(productId: string): Promise<Product>
+  createProduct(params: CreateProductRequest): Promise<Product>
+  updateProduct(params: UpdateProductRequest): Promise<Product>
+  findProductById(productId: string): Promise<Product | null>
+  deleteProduct(productId: string): Promise<void>
+  findAllProducts(): Promise<Product[] | null>
 }
