@@ -30,7 +30,7 @@ export class CartProductControllers {
         userId: Number(userId)
       },
       include: {
-        CartProduct: {
+        cartProducts: {
           include: {
             product: {}
           }
@@ -48,7 +48,7 @@ export class CartProductControllers {
         userId: Number(userId)
       },
       include: {
-        CartProduct: {
+        cartProducts: {
           include: {
             product: {}
           }

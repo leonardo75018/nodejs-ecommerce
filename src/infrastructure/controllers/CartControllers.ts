@@ -35,7 +35,7 @@ export class CartsControllers {
         userId: Number(userId)
       },
       include: {
-        CartProduct: {
+        cartProducts: {
           include: {
             product: {}
           }
@@ -46,11 +46,10 @@ export class CartsControllers {
     const cartTransformed = {
       cart: {
         id: userCart.id,
-        total: userCart.CartProduct.reduce(
-          (acc, item) => acc + item.price * item.quantity,
-          0
-        ).toFixed(2),
-        product: userCart.CartProduct
+        total: userCart.cartProducts
+          .reduce((acc, item) => acc + item.price * item.quantity, 0)
+          .toFixed(2),
+        product: userCart.cartProducts
       }
     }
     ;('')
