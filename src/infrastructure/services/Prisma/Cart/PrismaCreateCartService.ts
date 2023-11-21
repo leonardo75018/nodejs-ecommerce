@@ -10,7 +10,6 @@ export class PrimaCreateCartService {
       //Todo : Create Cart and add product to cart
       throw new Error('User already one cart')
     }
-
     const cart = await this.prismaCartRepository.createCart(userId)
     return cart
   }
